@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+          <!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background: linear-gradient(to right, #232526 , #7f8182 ,#232526);
+        }
+        .fulldata{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-left: 310px;
+        }
+
+        .fulldata input{
+            padding: 10px;
+            width: 40%;
+            height: 2vh;
+        }
+
+        .fulldata button{
+            padding: 10px;
+            background-color: rgb(22, 109, 180);
+            cursor: pointer;
+            border: none;
+            width: 43%;
+            height: 6vh;
+        }
+        .fulldata h1{
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fulldata">
+        <h1>User Data</h1>
+        <br>
+        <input id="name" type="text" placeholder="Enter your name">
+        <br>
+        <input  type="email" name="" id="email" placeholder="Enter your email">
+        <br>
+        <input id="age" type="number" placeholder="Enter your Age">
+        <br>
+        <input id="cnic" type="text" placeholder="Enter your CNIC">
+        <br>
+        <input id="address" type="text" placeholder="Enter your Address">
+        <br>
+        <input id="contact" type="text" placeholder="Enter your Contact">
+        <br>
+        <button onclick="getfulldata()">Submit</button>
+        </div>
+        <script src="./userdata.js"></script>
+        <script src="./key.js"></script>
+</body>
+</html>

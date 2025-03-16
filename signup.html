@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body{
+            background: linear-gradient(to right, #232526 , #7f8182 ,#232526);
+        }
+        .container input{ 
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            height: 2vh;
+            width: 30%;
+            padding-inline: 50px;
+            margin-left: 250px;
+        }
+        .container button{
+            padding: 15px;
+            padding-top: 10px;
+          padding-bottom: 20px;
+            margin-left: 300px;
+            color: aliceblue;
+            width: 30%;
+            height: 2vh;
+            background-color: rgb(22, 109, 180);
+            border: none;
+        }
+        .container button:hover{
+            width: 30%;
+            color: #232526;
+            background-color: rgb(174, 178, 182);
+        }
+    
+        .container h1{
+         margin-left: 60px;
+         text-align: center;
+         font-size: 30px;
+         margin-right: 70px;
+         color:white;
+        }
+        
+
+    </style>
+    
+</head>
+<body>
+    
+
+    <div class="container">
+        <h1>Create an account</h1>
+<input id="email" type="text" placeholder="                  Enter Email">
+<br><br>
+<input id="password" type="text" placeholder="                  Enter Password">
+<br><br>  
+<button onclick="register()">Register</button>
+<script>
+    function register(){
+        let email=document.getElementById('email').value
+        let password=document.getElementById('password').value
+        // console.log(email+password);
+        
+        if(email=='' || password=='')
+    {
+        Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Something went wrong!",
+ 
+});
+
+    }
+ else{
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in 
+    var user = userCredential.user;
+    // ...
+    window.location.href = "signin.html";
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert(errorCode+errorMessage)
+    // ..
+  });
+ }
+}
+    
+
+    
+</script>
+    </div>  
+    <script src="./key.js"></script>
+    
+</body>
+</html>  
