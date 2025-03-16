@@ -27,5 +27,6 @@ function getfulldata(){
     fdata.set(objname)
 
     alert('Add data...')
+     window.location.href = "academy2.html";
 
 }
